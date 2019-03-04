@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>img inpainting</title>
+    <script src="./jquery.min.js"></script>
+    <script src="./index.js"></script>
+    <style>
+        #canvas_draw{
+            margin: 0px;
+        }
+        img {
+          position: absolute;
+          z-index: -1;
+        }
+    </style>
+</head>
+<body style="margin:0px;">
+  <input id="img_upload" type="file"/><br>
+  <img id="img_show" src="img.jpeg" alt=""/>
+  <div>
+      <canvas id="canvas_draw" width="360px" height="360px"></canvas>
+  </div>
+  <div>
+      <button id="clear_all">清空</button>
+      <button id="inpaint">复原</button>
+      <button id="mask">mask</button>
+  </div>
+</body>
+</html>
