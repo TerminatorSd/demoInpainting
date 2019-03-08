@@ -9,6 +9,7 @@ const fs = require('fs');
 const path = require('path');
 const request = require('request');
 const nodeCmd = require('node-cmd');
+const { log } = require('../utils/framework')
 
 module.exports = [
 	{
@@ -32,7 +33,8 @@ module.exports = [
 			let isInput = false;
 			if(ctx.request.body.type == 'input') {
 				isInput = true;
-				saveName = 'inpainting_upload/input.' + ctx.request.body.name.split('.')[1]; 
+				saveName = 'inpainting_upload/input.jpg';
+				//  + ctx.request.body.name.split('.')[1]; 
 			}
 
 			// 保存图片
@@ -50,16 +52,31 @@ module.exports = [
 								console.log(stderr);
 							} else {
 								if(isInput) {
-									console.log('hello')
-									// 进行inpainting
+									isInput = false;
+									log.res('start global and local inpainting...');
+									// g and l进行inpainting
 									nodeCmd.get(
-										'th ./siggraph2017_inpainting/inpaint.lua --input ./inpainting_upload/input.jpg --mask ./inpainting_upload/white_zero_mask.jpg --output ./inpainting_result/',
+										'cd ./siggraph2017_inpainting && th inpaint.lua',
 										function(err, data, stderr) {
 											if(err || stderr) {
 												console.log(err);
 												console.log(stderr);
 											} else {
-												console.log('global and local done!')
+												log.res('global and local done!');
+												log.res('start generative inpainting...');
+												// generative inpainting 进行inpainting
+												nodeCmd.get(
+													'cd ./generative_inpainting && python test.py',
+													function(err, data, stderr) {
+														if(err || stderr) {
+															console.log(err);
+															console.log(stderr);
+														} else {
+															console.log('haha')
+															log.res('generative inpainting done!');
+														}
+													}
+												);
 											}
 										}
 									);

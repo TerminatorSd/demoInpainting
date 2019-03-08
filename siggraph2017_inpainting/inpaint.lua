@@ -25,10 +25,10 @@ cmd:addTime()
 cmd:text()
 
 -- 输入参数及默认值
-cmd:option( '--input',           'none',        'Input image' )
-cmd:option( '--output',          './res/',          'Output location')
-cmd:option( '--mask',            'none',        'Mask image')
-cmd:option( '--maxdim',             660,        'Long edge dimension of an input image')
+cmd:option( '--input',           '../inpainting_upload/input.jpg',        'Input image' )
+cmd:option( '--output',          '../inpainting_result/',          'Output location')
+cmd:option( '--mask',            '../inpainting_upload/white_zero_mask.jpg',        'Mask image')
+cmd:option( '--maxdim',           660,        'Long edge dimension of an input image')
 cmd:option( '--gpu',              false,        'Use GPU' )
 cmd:option( '--nopostproc',       true,        'Disable post-processing' )
 
@@ -150,7 +150,7 @@ end
 
 -- save output
 for j=1,3 do I[j]:add( datamean[j] ) end
-image.save(opt.output..'input.png', I)
-image.save(opt.output..'out.png', out)
+image.save(opt.output..'gl_input.png', I)
+image.save(opt.output..'gl_out.png', out)
 
 print('Done.')

@@ -81,7 +81,7 @@ function setCanvasSizeAndListener(file) {
   }) 
 
   // inpaint 功能
-  $('#inpaint').click(function() {
+  $('#inpaint').off('click').click(function() {
     // 产生遮罩
     var image = canvas_dom.toDataURL("image/png"); 
 
