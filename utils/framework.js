@@ -34,6 +34,10 @@ module.exports = {
       log(chalk.red('[Error]'), ...arguments)
     },
 
+    done () {
+      log(chalk.blue('[Done]'), ...arguments)
+    },
+
     res () {
       log(chalk.yellowBright('[Inpainting]'), ...arguments)
     }

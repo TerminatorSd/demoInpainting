@@ -7,3 +7,11 @@ yarn-error.log*
 .nyc_output
 upload/
 *.t7
+generative_inpainting
+segmentation
+segmentation
+siggraph2017_inpainting
+inpainting_result
+experiment_data
+inpainting_upload
+partial-conv

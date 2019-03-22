@@ -202,6 +202,8 @@ function compressImg(img, res) {
     return;
   }
 
+  // tarWidth = 256;
+  // tarHeight = 256;
   // canvas对图片进行缩放
   res.width = tarWidth;
   res.height = tarHeight;

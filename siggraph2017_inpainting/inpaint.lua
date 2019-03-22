@@ -150,7 +150,7 @@ end
 
 -- save output
 for j=1,3 do I[j]:add( datamean[j] ) end
-image.save(opt.output..'gl_input.png', I)
-image.save(opt.output..'gl_out.png', out)
+image.save(opt.output..'gl_input.jpg', I)
+image.save(opt.output..'gl_out.jpg', out)
 
 print('Done.')
