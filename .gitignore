@@ -15,3 +15,8 @@ inpainting_result
 experiment_data
 inpainting_upload
 partial-conv
+mask
+paper_site
+py/data
+rect_mask
+py/__*__

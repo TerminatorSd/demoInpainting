@@ -35,7 +35,8 @@
     "mongodb": "^2.2.25",
     "mongoose": "^4.9.3",
     "node-cmd": "^3.0.0",
-    "vue-simple-uploader": "^0.6.0"
+    "vue-simple-uploader": "^0.6.0",
+    "walk": "^2.3.14"
   },
   "devDependencies": {
     "@babel/core": "^7.1.5",

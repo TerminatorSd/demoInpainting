@@ -73,17 +73,33 @@ function setCanvasSizeAndListener(file) {
       canvas_dom.height = canvas_dom.height;
   });
 
-  // 产生遮罩功能
+  // 上传掩膜
   $('#mask').click(function() {
-    var image = canvas_dom.toDataURL("image/png");  
-    var w = window.open('about:blank','image from canvas');  
-    w.document.write("<img src='" + image + "' alt='from canvas'/>");  
+    // 产生遮罩
+    var image = canvas_dom.toDataURL("image/jpg"); 
+
+    // 上传遮罩
+    $.ajax({
+      type: 'post',
+      url: DOMAIN + '/mask/save' ,
+      data: {
+        name: name,
+        base64: image,
+        type: 'mask'
+      },
+      success: function(res) {
+        if(res.code == 0) {
+          console.log('ha')
+        }
+      },
+      dataType: 'json'
+    });
   }) 
 
   // inpaint 功能
   $('#inpaint').off('click').click(function() {
     // 产生遮罩
-    var image = canvas_dom.toDataURL("image/png"); 
+    var image = canvas_dom.toDataURL("image/jpg"); 
 
     // 上传遮罩
     $.ajax({
@@ -202,8 +218,8 @@ function compressImg(img, res) {
     return;
   }
 
-  // tarWidth = 256;
-  // tarHeight = 256;
+  tarWidth = 256;
+  tarHeight = 256;
   // canvas对图片进行缩放
   res.width = tarWidth;
   res.height = tarHeight;

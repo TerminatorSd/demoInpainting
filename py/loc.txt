@@ -1,0 +1,1 @@
+{'min_left': 391, 'max_right': 655, 'min_top': 201, 'max_bottom': 339}

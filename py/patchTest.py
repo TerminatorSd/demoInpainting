@@ -1,22 +1,13 @@
 #coding:utf-8
-# 把缺失区域的灰色均值变为白色
+# generative inpainting 修复过的图像会小4个像素
+# 我需要找到小的4个像素的规则或者说resize 是否可以消除这4个像素的影响
 import cv2
 
 img = cv2.imread('../inpainting_result/gl_input.jpg')
 mask = cv2.imread('../inpainting_upload/black_zero_mask.jpg')
 
-width = 0
-height = 0
-
-if mask.shape[0] > img.shape[0]: 
-  width = img.shape[0]
-else:
-  width = mask.shape[0]
-
-if mask.shape[1] > img.shape[1]:
-  height = img.shape[1]
-else:
-  height = mask.shape[1]
+width = mask.shape[0]
+height = mask.shape[1]
 channel = mask.shape[2]
 
 print(mask.shape)
