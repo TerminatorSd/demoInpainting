@@ -19,3 +19,4 @@ paper_site
 py/data
 rect_mask
 py/__*__
+inpainting_result

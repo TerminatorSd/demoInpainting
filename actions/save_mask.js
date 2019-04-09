@@ -33,18 +33,20 @@ module.exports = [
 
 			// 图片名 mask or input
 			// mask 命名格式为 num_white_zero.jpg  num_black_zero.jpg
-			let startNum = 26;
+			let startNum = 0;
 			var walker  = walk.walk(imgDir, { followLinks: false });
 
 			walker.on('file', function(roots, stat, next) {
-				console.log(roots)
-				console.log(stat.name)
+				// console.log(roots)
+				// console.log(stat.name)
 				startNum += 1;
+				next();
 			});
 
-			// walker.on('end', function() {
+			walker.on('end', function() {
 			// 	console.log('end, haha...')
-				let saveName = 'mask/' + startNum + '.jpg';
+				let nextNum = startNum / 3 + 1;
+				let saveName = 'mask/' + nextNum + '.jpg';
 
 				// 保存图片
 				fs.writeFile(saveName, dataBuffer, function(err) {
@@ -54,14 +56,14 @@ module.exports = [
 					} else {
 						// 根据上传掩膜制作两种mask
 						runCmd('start to generate two kinds of mask', 
-							'python ./py/generateMask.py --time ' + startNum, 
+							'python ./py/generateMask.py --time ' + nextNum, 
 							'generating mask done')
 					}
 				});
 
 				ctx.set("Content-Type", "application/json");
 				ctx.body = res;
-			// });
+			});
 		}
 	},
 ]

@@ -2,17 +2,19 @@
 const { runCmd } = require('./cmd')
 
 // do object extracting
-runCmd('strat to find object...',
-'cd ../py && python findObject.py',
-'find object!',
-0)
+// runCmd('strat to find object...',
+// 'cd ../py && python findObject.py',
+// 'find object!',
+// 0)
 
-// do object oriented inpainting
-runCmd('start to do object inpainting...',
-'cd ../generative_inpainting && python test_obj.py --mask ../inpainting_result/object_mask.jpg'
-+ ' --checkpoint_dir model_logs/para_4_normal/mine_5',
-'object inpainting done!',
-2000)
+// // do object oriented inpainting
+// runCmd('start to do object inpainting...',
+// 'cd ../generative_inpainting/test/no_para_no_pre_dog && python test_1.py'
+// + ' --image ../../../inpainting_result/object_input.jpg'
+// + ' --mask ../../../inpainting_result/object_mask.jpg'
+// + ' --output ../../../inpainting_result/object_output.jpg',
+// 'object inpainting done!',
+// 2000)
 
 // concat img to generate final result
 runCmd('start to do img concating...',

@@ -6,7 +6,10 @@ var DOMAIN = 'http://localhost:8300';
 // 上传的时候先上传mask，图片需要根据是否有调整过大小使用不同的代码上传
 // 很麻烦！
 
+var inpaint_num = 0;
+
 $(document).ready(function() {
+
   // setCanvasSizeAndListener();
 
   // 图片选择预览
@@ -100,6 +103,7 @@ function setCanvasSizeAndListener(file) {
   $('#inpaint').off('click').click(function() {
     // 产生遮罩
     var image = canvas_dom.toDataURL("image/jpg"); 
+    inpaint_num++;
 
     // 上传遮罩
     $.ajax({
@@ -163,6 +167,78 @@ function setCanvasSizeAndListener(file) {
       dataType: 'json'
     });
     
+    // 设定定时器，获取结果
+    var resDom = document.getElementsByClassName('res')[0];
+    resDom.style.display = 'none';
+
+    var prefix = '/Users/shaodong/myGit/demoInpainting/inpainting_result/';
+    setTimeout(function() {
+
+      // 发送请求获取ass.txt 内容
+      $.ajax({
+        type: 'get',
+        url: DOMAIN + '/res/ass' ,
+        data: {
+          name: file.name,
+          base64: imgDom.src,
+          type: 'input'
+        },
+        success: function(res) {
+          // 显示修复结果及定量分析结果
+          if(res.code == 0) {
+            data = res.data;
+            console.log(res.data)
+            var glDom = document.getElementsByClassName('g_l')[0];
+            var irDom = document.getElementsByClassName('ir')[0];
+            var geImgDom = document.getElementsByClassName('generative_imagenet')[0];
+            var gePlsDom = document.getElementsByClassName('generative_places2')[0];
+            var mineDom = document.getElementsByClassName('mine')[0];
+
+            resDom.style.display = 'block';
+            glDom.src = prefix + 'gl_out.jpg?v=' + inpaint_num;
+            irDom.src = prefix + 'ir_out.jpg?v=' + inpaint_num;
+            geImgDom.src = prefix + 'gi_out_imagenet.jpg?v=' + inpaint_num;
+            gePlsDom.src = prefix + 'gi_out_places2.jpg?v=' + inpaint_num;
+            mineDom.src = prefix + 'para_4_normal_9.jpg?v=' + inpaint_num;
+
+            // mse、psnr、ssim
+            var glMse = document.getElementsByClassName('gl_mse')[0];
+            var glPsnr = document.getElementsByClassName('gl_psnr')[0];
+            var glSsim = document.getElementsByClassName('gl_ssim')[0];
+            var irMse = document.getElementsByClassName('ir_mse')[0];
+            var irPsnr = document.getElementsByClassName('ir_psnr')[0];
+            var irSsim = document.getElementsByClassName('ir_ssim')[0]; 
+            var gi_img_Mse = document.getElementsByClassName('gi_img_mse')[0];
+            var gi_img_Psnr = document.getElementsByClassName('gi_img_psnr')[0];
+            var gi_img_Ssim = document.getElementsByClassName('gi_img_ssim')[0];
+            var gi_pls_Mse = document.getElementsByClassName('gi_pls_mse')[0];
+            var gi_pls_Psnr = document.getElementsByClassName('gi_pls_psnr')[0];
+            var gi_pls_Ssim = document.getElementsByClassName('gi_pls_ssim')[0];
+            var mineMse = document.getElementsByClassName('mine_mse')[0];
+            var minePsnr = document.getElementsByClassName('mine_psnr')[0];
+            var mineSsim = document.getElementsByClassName('mine_ssim')[0];
+
+            glMse.innerText = 'MSE: ' + parseFloat(data['gl_out'][0]).toFixed(3);
+            glPsnr.innerText = 'PSNR: ' + parseFloat(data['gl_out'][1]).toFixed(3);
+            glSsim.innerText = 'SSIM: ' + parseFloat(data['gl_out'][2]).toFixed(3);
+            irMse.innerText = 'MSE: ' + parseFloat(data['ir_out'][0]).toFixed(3);
+            irPsnr.innerText = 'PSNR: ' + parseFloat(data['ir_out'][1]).toFixed(3);
+            irSsim.innerText = 'SSIM: ' + parseFloat(data['ir_out'][2]).toFixed(3);
+            gi_img_Mse.innerText = 'MSE: ' + parseFloat(data['gi_out_imagenet'][0]).toFixed(3);
+            gi_img_Psnr.innerText = 'PSNR: ' + parseFloat(data['gi_out_imagenet'][1]).toFixed(3);
+            gi_img_Ssim.innerText = 'SSIM: ' + parseFloat(data['gi_out_imagenet'][2]).toFixed(3);
+            gi_pls_Mse.innerText = 'MSE: ' + parseFloat(data['gi_out_places2'][0]).toFixed(3);
+            gi_pls_Psnr.innerText = 'PSNR: ' + parseFloat(data['gi_out_places2'][1]).toFixed(3);
+            gi_pls_Ssim.innerText = 'SSIM: ' + parseFloat(data['gi_out_places2'][2]).toFixed(3);
+            mineMse.innerText = 'MSE: ' + parseFloat(data['para_4_normal_9'][0]).toFixed(3);
+            minePsnr.innerText = 'PSNR: ' + parseFloat(data['para_4_normal_9'][1]).toFixed(3);
+            mineSsim.innerText = 'SSIM: ' + parseFloat(data['para_4_normal_9'][2]).toFixed(3);
+          }
+        },
+        dataType: 'json'
+      });
+      
+    }, 20000)
   })
 
   //用来判断鼠标是否还在按下
@@ -218,8 +294,8 @@ function compressImg(img, res) {
     return;
   }
 
-  tarWidth = 256;
-  tarHeight = 256;
+  // tarWidth = 256;
+  // tarHeight = 256;
   // canvas对图片进行缩放
   res.width = tarWidth;
   res.height = tarHeight;

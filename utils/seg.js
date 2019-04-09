@@ -5,7 +5,7 @@ const { runCmd } = require('./cmd')
 // do segmentation on inpainted image
 runCmd('segmentation on inpainted image...',
 'cd ../segmentation && source ~/myGit/ganCode/virtualEnv/envPython2/bin/activate' 
-+ ' && python inference_2.py --img_path ../inpainting_result/gi_out_mine_8.jpg'
++ ' && python inference_2.py --img_path ../inpainting_result/gi_out_imagenet.jpg'
 + ' && source ~/myGit/ganCode/virtualEnv/tensorEnv/bin/activate',
 'segmentation done!',
 1000)

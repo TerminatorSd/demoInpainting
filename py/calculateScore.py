@@ -1,7 +1,7 @@
 
 import os
 
-path = '../paper_site/x1/'
+path = '/Users/shaodong/myGit/demoInpainting/paper_site/oneHundred'
 
 res_dic = {}
 file_num = 0

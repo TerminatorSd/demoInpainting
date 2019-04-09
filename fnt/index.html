@@ -11,13 +11,42 @@
             margin: 0px;
             /* border: 1px solid grey; */
         }
-        img {
+        #img_show {
           position: absolute;
           z-index: -1;
         }
+        .res {
+					display: none;
+					margin-top: 60px;
+        }
+				.res_item {
+					display: inline-block;
+					width: 280px;
+					text-align: center;
+				}
+				.res_item .title {
+					width: 100%;
+					margin-top: 10px;
+					margin-bottom: 10px;
+					display: inline-block;
+					text-align: center;
+				}
+				.res_item .res_num {
+					display: inline-block;
+				}
+				.res_num span {
+					width: 100%;
+					margin-top: 10px;
+					margin-bottom: 10px;
+				}
+        .res_size {
+            width: 256px;
+            height: 256px;
+            /* border: 1px solid grey; */
+        }
     </style>
 </head>
-<body style="margin:0px;">
+<body style="margin:10px;">
   <input id="img_upload" type="file"/><br>
   <img id="img_show" src="img.jpeg" alt=""/>
   <div>
@@ -28,5 +57,55 @@
       <button id="inpaint">复原</button>
       <button id="mask">mask</button>
   </div>
+
+  <div class="res">
+		<!-- res_item 包含标题、结果图片、定量分析结果 -->
+		<div class="res_item">
+			<span class="title">全局与局部判别器</span>
+			<img src="" alt="" class="res_size g_l">
+			<span class="res_num">
+				<span class="gl_mse">mse: 3</span><br>
+				<span class="gl_psnr">psnr: 4</span><br>
+				<span class="gl_ssim">ssim: 5</span><br>
+			</span>
+		</div>
+		<div class="res_item">
+			<span class="title">部分卷积</span>
+			<img src="" alt="" class="res_size ir">
+			<span class="res_num">
+				<span class="ir_mse">mse: 3</span><br>
+				<span class="ir_psnr">psnr: 4</span><br>
+				<span class="ir_ssim">ssim: 5</span><br>
+			</span>
+		</div>
+		<div class="res_item">
+			<span class="title">生成式模型（ImageNet）</span>
+			<img src="" alt="" class="res_size generative_imagenet">
+			<span class="res_num">
+				<span class="gi_img_mse">mse: 3</span><br>
+				<span class="gi_img_psnr">psnr: 4</span><br>
+				<span class="gi_img_ssim">ssim: 5</span><br>
+			</span>
+		</div>
+		<div class="res_item">
+			<span class="title">生成式模型（Places2）</span>
+			<img src="" alt="" class="res_size generative_places2">
+			<span class="res_num">
+				<span class="gi_pls_mse">mse: 3</span><br>
+				<span class="gi_pls_psnr">psnr: 4</span><br>
+				<span class="gi_pls_ssim">ssim: 5</span><br>
+			</span>
+		</div>
+		<div class="res_item">
+				<span class="title">本文模型</span>
+				<img src="" alt="" class="res_size mine">
+				<span class="res_num">
+					<span class="mine_mse">mse: 3</span><br>
+					<span class="mine_psnr">psnr: 4</span><br>
+					<span class="mine_ssim">ssim: 5</span><br>
+				</span>
+		</div>
+  </div>
+  
 </body>
 </html>

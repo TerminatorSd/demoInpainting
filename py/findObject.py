@@ -246,6 +246,7 @@ def findObjectBox(rec_loc, target_ele, seg_res_gray, zero_matrix):
 
       # 找到了种子点，以当前点为基础，向四周扩散
       if(pv >= target_ele - 6 and pv <= target_ele + 6):
+        print()
         print('\n ** seed pos ** \n', col, row)
         return findObjectBoundry(row, col, target_ele, seg_res_gray, zero_matrix)
 
@@ -257,8 +258,7 @@ def findObjectBox(rec_loc, target_ele, seg_res_gray, zero_matrix):
       # 找到了种子点，以当前点为基础，向四周扩散
       if(pv >= target_ele - 6 and pv <= target_ele + 6):
         print(row, col)
-        findObjectBoundry(row, col, target_ele, seg_res_gray, zero_matrix)
-        return
+        return findObjectBoundry(row, col, target_ele, seg_res_gray, zero_matrix)
 
 # 获取目标边界框
 object_loc = findObjectBox(rec_loc, target_ele, seg_res_gray, zero_matrix)

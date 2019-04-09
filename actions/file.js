@@ -72,7 +72,18 @@ module.exports = [
 							'cd generative_inpainting && python test.py --output ../inpainting_result/gi_out_imagenet.jpg --checkpoint_dir model_logs/release_imagenet_256',
 							'generative inpainting done!',
 							1200)
+						
+						// my model
+						runCmd('start my para_4_normal_9 inpainting...',
+							'cd generative_inpainting/test/para_4_normal && python test_9.py',
+							'generative inpainting done!',
+							1400)
 
+						// 计算定量分析结果
+						runCmd('strat to calculate assessment...',
+							'cd py && python assessment.py',
+							'calculation done!',
+							18000)
 						// // do segmentation inpainted image
 						// setTimeout(() => {
 						// 	runCmd('segmentation on input_with_mask image...', 

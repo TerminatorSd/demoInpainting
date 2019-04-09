@@ -3,27 +3,13 @@ const fs = require('fs')
 const walk = require('walk')
 const { runCmd } = require('./cmd')
 
-// var imgDir = '/Users/shaodong/myGit/img/pls100';
+var imgDir = '/Users/shaodong/myGit/img/pls100';
 var maskDir = '/Users/shaodong/myGit/demoInpainting/mask';
 var dirPre = '/Users/shaodong/myGit/demoInpainting/paper_site/oneHundred/'
 var MASK_MAX = 24;
 var nowIndex = 1;
 
-
-let imgDir = '/Users/shaodong/myGit/demoInpainting/mask'
-
-// 图片名 mask or input
-// mask 命名格式为 num_white_zero.jpg  num_black_zero.jpg
-let startNum = 26;
-var walker  = walk.walk(imgDir, { followLinks: false });
-
-walker.on('file', function(roots, stat, next) {
-	console.log(roots)
-	console.log(stat.name)
-	startNum += 1;
-});
-
-// walkImgDir(imgDir)
+walkImgDir(imgDir)
 
 // 遍历img 目录
 function walkImgDir(imgDir) {
@@ -125,6 +111,15 @@ function walkImgDir(imgDir) {
       + ' --output ' + saveDir + '/para_4_normal_10.jpg',
       'para_4_normal_10 done!',
       8000);
+		
+		// 制作白色mask 图片
+		runCmd('start to generate white mask area...', 
+			'cd ../py && python whiteMask.py'
+			+ ' --img ' + imgLoc
+			+ ' --mask ' + maskLoc + '_black_zero.jpg'
+			+ ' --output ' + saveDir + '/gl_input_white.jpg', 
+			'white mask area done!',
+			20000)
 
     // 计算定量指标
     runCmd('start calculating assessment...',

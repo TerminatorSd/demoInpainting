@@ -9,16 +9,28 @@ import numpy as np
 zero_matrix = np.zeros([256, 256])
 one_matrix = np.full([256, 256], 255)
 
-area = 128 * 128
+SIDEX = 64
+SIDEY = 32
 
-# generate big mask
-rand_x = random.randint(0, 127)
-rand_y = random.randint(0, 127)
+startNum = 97
 
-for x in range(rand_x, rand_x + 127):
-    for y in range(rand_y, rand_y + 127):
-        zero_matrix[x][y] = 255
-        one_matrix[x][y] = 0
+area = SIDEX * SIDEY
 
-cv2.imwrite('../rect_mask/' + str(rand_x) + '_' + str(rand_y) + '_zero.jpg', zero_matrix)
-cv2.imwrite('../rect_mask/' + str(rand_x) + '_' + str(rand_y) + '_one.jpg', one_matrix)
+def generateRect(startNum):
+	# generate big mask
+	rand_x = random.randint(0, 256 - SIDEX - 1)
+	rand_y = random.randint(0, 256 - SIDEY - 1)
+
+	for x in range(rand_x, rand_x + SIDEX - 1):
+			for y in range(rand_y, rand_y + SIDEY - 1):
+					zero_matrix[x][y] = 255
+					one_matrix[x][y] = 0
+
+	cv2.imwrite('../mask/' + str(startNum) + '_white_zero.jpg', zero_matrix)
+	cv2.imwrite('../mask/' + str(startNum) + '_black_zero.jpg', one_matrix)
+
+def main():
+	for i in range(startNum, startNum + 4):
+		generateRect(i)
+
+main()

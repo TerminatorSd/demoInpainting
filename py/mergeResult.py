@@ -2,7 +2,7 @@
 import cv2
 import json
 
-whole_img = '../inpainting_result/gi_out_places2.jpg'
+whole_img = '../inpainting_result/para_4_normal_6.jpg'
 object_img = '../inpainting_result/object_output.jpg'
 
 def merge(whole_img, object_img):

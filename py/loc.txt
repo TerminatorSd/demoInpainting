@@ -1,1 +1,1 @@
-{'min_left': 391, 'max_right': 655, 'min_top': 201, 'max_bottom': 339}
+{'min_left': 299, 'max_right': 484, 'min_top': 218, 'max_bottom': 388}
