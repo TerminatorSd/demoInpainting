@@ -15,6 +15,9 @@
           position: absolute;
           z-index: -1;
         }
+				.mt-10 {
+					margin-top: 10px;
+				}
         .res {
 					display: none;
 					margin-top: 60px;
@@ -44,18 +47,42 @@
             height: 256px;
             /* border: 1px solid grey; */
         }
+				button.btn {
+					color: #fff;
+					background-color: #409eff;
+					border-color: #409eff;
+
+					display: inline-block;
+					line-height: 1;
+					white-space: nowrap;
+					cursor: pointer;
+					border: 1px solid #dcdfe6;
+					-webkit-appearance: none;
+					text-align: center;
+					box-sizing: border-box;
+					outline: none;
+					margin-right: 4px;
+					transition: .1s;
+					font-weight: 500;
+					-moz-user-select: none;
+					-webkit-user-select: none;
+					-ms-user-select: none;
+					padding: 12px 20px;
+					font-size: 14px;
+					border-radius: 4px;
+				}
     </style>
 </head>
 <body style="margin:10px;">
   <input id="img_upload" type="file"/><br>
-  <img id="img_show" src="img.jpeg" alt=""/>
+  <img class="mt-10" id="img_show" src="img.jpeg" alt=""/>
   <div>
       <canvas id="canvas_draw" width="360px" height="360px"></canvas>
   </div>
-  <div>
-      <button id="clear_all">清空</button>
-      <button id="inpaint">复原</button>
-      <button id="mask">mask</button>
+  <div class="mt-10">
+      <button class="btn" id="clear_all">清空</button>
+      <button class="btn" id="inpaint">复原</button>
+      <button class="btn" id="mask">制作掩膜</button>
   </div>
 
   <div class="res">
