@@ -192,14 +192,14 @@ function setCanvasSizeAndListener(file) {
             var irDom = document.getElementsByClassName('ir')[0];
             var geImgDom = document.getElementsByClassName('generative_imagenet')[0];
             var gePlsDom = document.getElementsByClassName('generative_places2')[0];
-            var mineDom = document.getElementsByClassName('mine')[0];
+            // var mineDom = document.getElementsByClassName('mine')[0];
 
             resDom.style.display = 'block';
             glDom.src = prefix + 'gl_out.jpg?v=' + inpaint_num;
             irDom.src = prefix + 'ir_out.jpg?v=' + inpaint_num;
             geImgDom.src = prefix + 'gi_out_imagenet.jpg?v=' + inpaint_num;
             gePlsDom.src = prefix + 'gi_out_places2.jpg?v=' + inpaint_num;
-            mineDom.src = prefix + 'para_4_normal_9.jpg?v=' + inpaint_num;
+            // mineDom.src = prefix + 'para_4_normal_9.jpg?v=' + inpaint_num;
 
             // mse、psnr、ssim
             var glMse = document.getElementsByClassName('gl_mse')[0];
@@ -215,8 +215,8 @@ function setCanvasSizeAndListener(file) {
             var gi_pls_Psnr = document.getElementsByClassName('gi_pls_psnr')[0];
             var gi_pls_Ssim = document.getElementsByClassName('gi_pls_ssim')[0];
             var mineMse = document.getElementsByClassName('mine_mse')[0];
-            var minePsnr = document.getElementsByClassName('mine_psnr')[0];
-            var mineSsim = document.getElementsByClassName('mine_ssim')[0];
+            // var minePsnr = document.getElementsByClassName('mine_psnr')[0];
+            // var mineSsim = document.getElementsByClassName('mine_ssim')[0];
 
             glMse.innerText = 'MSE: ' + parseFloat(data['gl_out'][0]).toFixed(3);
             glPsnr.innerText = 'PSNR: ' + parseFloat(data['gl_out'][1]).toFixed(3);
@@ -231,8 +231,8 @@ function setCanvasSizeAndListener(file) {
             gi_pls_Psnr.innerText = 'PSNR: ' + parseFloat(data['gi_out_places2'][1]).toFixed(3);
             gi_pls_Ssim.innerText = 'SSIM: ' + parseFloat(data['gi_out_places2'][2]).toFixed(3);
             mineMse.innerText = 'MSE: ' + parseFloat(data['para_4_normal_9'][0]).toFixed(3);
-            minePsnr.innerText = 'PSNR: ' + parseFloat(data['para_4_normal_9'][1]).toFixed(3);
-            mineSsim.innerText = 'SSIM: ' + parseFloat(data['para_4_normal_9'][2]).toFixed(3);
+            // minePsnr.innerText = 'PSNR: ' + parseFloat(data['para_4_normal_9'][1]).toFixed(3);
+            // mineSsim.innerText = 'SSIM: ' + parseFloat(data['para_4_normal_9'][2]).toFixed(3);
           }
         },
         dataType: 'json'

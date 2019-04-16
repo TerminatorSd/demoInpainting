@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-    <title>img inpainting</title>
+    <title>图像修复系统</title>
     <script src="./jquery.min.js"></script>
     <script src="./index.js"></script>
     <style>
@@ -47,6 +47,9 @@
             height: 256px;
             /* border: 1px solid grey; */
         }
+				.border {
+					border: 1px solid grey;
+				}
 				button.btn {
 					color: #fff;
 					background-color: #409eff;
@@ -83,7 +86,12 @@
       <button class="btn" id="clear_all">清空</button>
       <button class="btn" id="inpaint">复原</button>
       <button class="btn" id="mask">制作掩膜</button>
-  </div>
+	</div>
+	
+	<div>
+		<img class="mt-10 border" src="../inpainting_upload/black_zero_mask.jpg" alt=""/>
+		<img class="mt-10" src="../inpainting_upload/white_zero_mask.jpg" alt=""/>
+	</div>
 
   <div class="res">
 		<!-- res_item 包含标题、结果图片、定量分析结果 -->
@@ -122,8 +130,9 @@
 				<span class="gi_pls_psnr">psnr: 4</span><br>
 				<span class="gi_pls_ssim">ssim: 5</span><br>
 			</span>
+			
 		</div>
-		<div class="res_item">
+		<!-- <div class="res_item">
 				<span class="title">本文模型</span>
 				<img src="" alt="" class="res_size mine">
 				<span class="res_num">
@@ -131,7 +140,7 @@
 					<span class="mine_psnr">psnr: 4</span><br>
 					<span class="mine_ssim">ssim: 5</span><br>
 				</span>
-		</div>
+		</div> -->
   </div>
   
 </body>
