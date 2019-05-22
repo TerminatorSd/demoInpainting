@@ -86,12 +86,14 @@ module.exports = [
 							12000)
 
 						// 15s 后复制图片到服务器
-						runCmd('start to copy img',
+						runCmd('start to copy inpainting_result...',
 							'scp inpainting_result/* root@39.108.163.91:/var/www/html/demoInpainting/res_img',
+							'inpainting_result done',
 							14000)
 
-						runCmd('start to copy img',
+						runCmd('start to copy inpainting_upload...',
 							'scp inpainting_upload/* root@39.108.163.91:/var/www/html/demoInpainting/res_img',
+							'inpainting_upload done!',
 							15000)
 						// // do segmentation inpainted image
 						// setTimeout(() => {
