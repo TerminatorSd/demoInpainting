@@ -1,5 +1,27 @@
 # UI for inpainting
 
+### 开启流程
+#### 前端页面放到服务器上，并配置nginx转发
+```
+...
+配置好以后前端页面访问的是云服务器上的
+发送到后端的请求会被转发到本地配置比较好的客户端
+```
+#### 服务器运行frps.ini
+```
+cd /opt/frp/frps/
+./frps -c frps.ini
+```
+#### 本地运行frpc.ini
+```
+cd ~/myGit/frp
+./frpc -c frpc.ini
+```
+#### 本地运行后台程序
+```
+npm run dev
+```
+### 操作流程
 #### 1、访问
 - 前端：`visit ./fnt/index.html`
 - 后端：`npm run dev`
@@ -23,3 +45,4 @@
 - 批处理图片位置：可自行指定
 - 批处理mask 位置：./mask
 - 预设时间为25s 一副，一百张图片大概需要半个多小时
+

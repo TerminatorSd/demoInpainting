@@ -84,6 +84,15 @@ module.exports = [
 							'cd py && python assessment.py',
 							'calculation done!',
 							12000)
+
+						// 15s 后复制图片到服务器
+						runCmd('start to copy img',
+							'scp inpainting_result/* root@39.108.163.91:/var/www/html/demoInpainting/res_img',
+							14000)
+
+						runCmd('start to copy img',
+							'scp inpainting_upload/* root@39.108.163.91:/var/www/html/demoInpainting/res_img',
+							15000)
 						// // do segmentation inpainted image
 						// setTimeout(() => {
 						// 	runCmd('segmentation on input_with_mask image...', 

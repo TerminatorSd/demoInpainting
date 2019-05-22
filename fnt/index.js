@@ -168,7 +168,7 @@ function setCanvasSizeAndListener(file) {
     });
     
     // 设定定时器，获取结果
-    var countNum = 15;
+    var countNum = 20;
     var resDom = document.getElementsByClassName('res')[0];
     resDom.style.display = 'none';
     var maskDom = document.getElementsByClassName('mask')[0];
@@ -185,7 +185,9 @@ function setCanvasSizeAndListener(file) {
       }
     }, 1000)
 
+    // var prefix = '/Users/shaodong/myGit/demoInpainting/inpainting_result/';
     var prefix = '/Users/shaodong/myGit/demoInpainting/inpainting_result/';
+    // var maskPrefix = '/Users/shaodong/myGit/demoInpainting/inpainting_upload/';
     var maskPrefix = '/Users/shaodong/myGit/demoInpainting/inpainting_upload/';
     setTimeout(function() {
 
