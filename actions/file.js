@@ -83,7 +83,7 @@ module.exports = [
 						runCmd('strat to calculate assessment...',
 							'cd py && python assessment.py',
 							'calculation done!',
-							18000)
+							12000)
 						// // do segmentation inpainted image
 						// setTimeout(() => {
 						// 	runCmd('segmentation on input_with_mask image...', 

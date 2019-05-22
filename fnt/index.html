@@ -12,6 +12,8 @@
             /* border: 1px solid grey; */
         }
         #img_show {
+					width: 256px;
+					height: 256px;
           position: absolute;
           z-index: -1;
         }
@@ -76,10 +78,19 @@
 				}
 				.demo-title {
 					font-size: 24px;
-					margin: 100px 0 20px;
+					margin: 20px 0;
+					padding: 6px 0;
+    			border-bottom: 1px solid #e2e2e2;
 				}
-				.demo, .demo-title {
+				.mask {
+					display: none;
+				}
+				.hidden {
 					visibility: hidden;
+				}
+				.ajax {
+					display: none;
+					margin: 20px 0;
 				}
     </style>
 </head>
@@ -87,12 +98,22 @@
   <input id="img_upload" type="file"/><br>
   <img class="mt-10" id="img_show" src="img.jpeg" alt=""/>
   <div>
-      <canvas id="canvas_draw" width="360px" height="360px"></canvas>
+      <canvas id="canvas_draw" width="256px" height="256px"></canvas>
   </div>
   <div class="mt-10">
       <button class="btn" id="clear_all">清空</button>
       <button class="btn" id="inpaint">复原</button>
       <button class="btn" id="mask">制作掩膜</button>
+	</div>
+
+	<div class="ajax">将于15s后请求服务器端修复结果...</div>
+
+	<div class="mask">
+		<div class="demo-title">
+			Mask
+		</div>
+		<img src="" alt="" class="res_size black_zero border">
+		<img src="" alt="" class="res_size white_zero">
 	</div>
 	
 	<!-- <div>
@@ -152,10 +173,10 @@
 		</div>
 	</div>
 	
-	<div class="demo-title">
+	<div class="demo-title hidden">
 		Demo Image
 	</div>
-	<div class="demo">
+	<div class="demo hidden">
 		<img src="../img/demo/16.jpg" alt="">
 		<img src="../img/demo/17.jpg" alt="">
 		<img src="../img/demo/18.jpg" alt="">

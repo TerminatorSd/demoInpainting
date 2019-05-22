@@ -168,10 +168,25 @@ function setCanvasSizeAndListener(file) {
     });
     
     // 设定定时器，获取结果
+    var countNum = 15;
     var resDom = document.getElementsByClassName('res')[0];
     resDom.style.display = 'none';
+    var maskDom = document.getElementsByClassName('mask')[0];
+    maskDom.style.display = 'none';
+    var ajaxDom = document.getElementsByClassName('ajax')[0];
+    ajaxDom.style.display = 'block';
+
+    var intId = setInterval(function () {
+      countNum--;
+      ajaxDom.innerText = '将于' + countNum + 's后请求服务器端修复结果...';
+      if (countNum === 0) {
+        clearInterval(intId)
+        ajaxDom.style.display = 'none'
+      }
+    }, 1000)
 
     var prefix = '/Users/shaodong/myGit/demoInpainting/inpainting_result/';
+    var maskPrefix = '/Users/shaodong/myGit/demoInpainting/inpainting_upload/';
     setTimeout(function() {
 
       // 发送请求获取ass.txt 内容
@@ -188,18 +203,23 @@ function setCanvasSizeAndListener(file) {
           if(res.code == 0) {
             data = res.data;
             console.log(res.data)
+            var blackZeroDom = document.getElementsByClassName('black_zero')[0];
+            var whiteZeroDom = document.getElementsByClassName('white_zero')[0];
             var glDom = document.getElementsByClassName('g_l')[0];
             var irDom = document.getElementsByClassName('ir')[0];
             var geImgDom = document.getElementsByClassName('generative_imagenet')[0];
             var gePlsDom = document.getElementsByClassName('generative_places2')[0];
-            // var mineDom = document.getElementsByClassName('mine')[0];
+            var mineDom = document.getElementsByClassName('mine')[0];
 
             resDom.style.display = 'block';
+            maskDom.style.display = 'block';
+            blackZeroDom.src = maskPrefix + 'black_zero_mask.jpg?v=' + inpaint_num;
+            whiteZeroDom.src = maskPrefix + 'white_zero_mask.jpg?v=' + inpaint_num;
             glDom.src = prefix + 'gl_out.jpg?v=' + inpaint_num;
             irDom.src = prefix + 'ir_out.jpg?v=' + inpaint_num;
             geImgDom.src = prefix + 'gi_out_imagenet.jpg?v=' + inpaint_num;
             gePlsDom.src = prefix + 'gi_out_places2.jpg?v=' + inpaint_num;
-            // mineDom.src = prefix + 'para_4_normal_9.jpg?v=' + inpaint_num;
+            mineDom.src = prefix + 'para_4_normal_9.jpg?v=' + inpaint_num;
 
             // mse、psnr、ssim
             var glMse = document.getElementsByClassName('gl_mse')[0];
@@ -215,8 +235,8 @@ function setCanvasSizeAndListener(file) {
             var gi_pls_Psnr = document.getElementsByClassName('gi_pls_psnr')[0];
             var gi_pls_Ssim = document.getElementsByClassName('gi_pls_ssim')[0];
             var mineMse = document.getElementsByClassName('mine_mse')[0];
-            // var minePsnr = document.getElementsByClassName('mine_psnr')[0];
-            // var mineSsim = document.getElementsByClassName('mine_ssim')[0];
+            var minePsnr = document.getElementsByClassName('mine_psnr')[0];
+            var mineSsim = document.getElementsByClassName('mine_ssim')[0];
 
             glMse.innerText = 'MSE: ' + parseFloat(data['gl_out'][0]).toFixed(3);
             glPsnr.innerText = 'PSNR: ' + parseFloat(data['gl_out'][1]).toFixed(3);
@@ -231,14 +251,14 @@ function setCanvasSizeAndListener(file) {
             gi_pls_Psnr.innerText = 'PSNR: ' + parseFloat(data['gi_out_places2'][1]).toFixed(3);
             gi_pls_Ssim.innerText = 'SSIM: ' + parseFloat(data['gi_out_places2'][2]).toFixed(3);
             mineMse.innerText = 'MSE: ' + parseFloat(data['para_4_normal_9'][0]).toFixed(3);
-            // minePsnr.innerText = 'PSNR: ' + parseFloat(data['para_4_normal_9'][1]).toFixed(3);
-            // mineSsim.innerText = 'SSIM: ' + parseFloat(data['para_4_normal_9'][2]).toFixed(3);
+            minePsnr.innerText = 'PSNR: ' + parseFloat(data['para_4_normal_9'][1]).toFixed(3);
+            mineSsim.innerText = 'SSIM: ' + parseFloat(data['para_4_normal_9'][2]).toFixed(3);
           }
         },
         dataType: 'json'
       });
       
-    }, 20000)
+    }, countNum * 1000)
   })
 
   //用来判断鼠标是否还在按下

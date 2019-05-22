@@ -1,0 +1,13 @@
+[1]	Android系统优化软件的设计与实现_百度学术[EB/OL]. /2019-05-20. http://xueshu.baidu.com/usercenter/paper/show?paperid=bff36da529bf2e89e294eba9fe77e787&site=xueshu_se&hitarticle=1&sc_from=scut.
+[2]	Routing TCP/IP, Volume 1_百度学术[EB/OL]. /2019-05-20. http://xueshu.baidu.com/usercenter/paper/show?paperid=e7e58e1519a76f385cf26e675406896f&site=xueshu_se&hitarticle=1&sc_from=scut.
+[3]	XML二进制序列化技术及其在DOA中的应用研究_百度学术[EB/OL]. /2019-05-20. http://xueshu.baidu.com/usercenter/paper/show?paperid=e08f761cfa0ce6a3bf546c9b3a7dd099&site=xueshu_se&hitarticle=1&sc_from=scut.
+[4]	Redis in Action_百度学术[EB/OL]. /2019-05-20. http://xueshu.baidu.com/usercenter/paper/show?paperid=376222bc50c0aa33820903cfb8d400c6&site=xueshu_se.
+[5]	ApacheMINA. Apache MINA Project [EB/OL][J]. 2012.
+[6]	Wang V, Salim F, Moskovits P. The Definitive Guide to HTML5 WebSocket[M]. Berkeley, CA: Apress, 2013.
+[7]	Wang V, Salim F, Moskovits P. The WebSocket Protocol[A]. 见: The Definitive Guide to HTML5 WebSocket[M]. Berkeley, CA: Apress, 2013: 33–60.
+[8]	Microservices: Flexible Software Architecture_百度学术[EB/OL]. /2019-05-20. http://xueshu.baidu.com/usercenter/paper/show?paperid=a05b13c3038e669162b4061b7470adf5&site=xueshu_se&hitarticle=1&sc_from=scut.
+[9]	Shiyong Xiong, Jiong Lang. Data integration method based on multi-message mechanism and service-Oriented architecture[A]. 2010 International Conference on Computer Application and System Modeling (ICCASM 2010)[C]. Taiyuan, China: IEEE, 2010: V14-434-V14-437.
+[10]	Brugali D, Gherardi L, Klotzbücher M, 等. Service Component Architectures in Robotics: The SCA-Orocos Integration[A]. 见: R. Hähnle, J. Knoop, T. Margaria, 等. Leveraging Applications of Formal Methods, Verification, and Validation[M]. Berlin, Heidelberg: Springer Berlin Heidelberg, 2012, 336: 46–60.
+[11]	Service-Oriented Software Architecture for Cloud Robotics_百度学术[EB/OL]. /2019-05-20. http://xueshu.baidu.com/usercenter/paper/show?paperid=1u5j0t40yc030ap050270cw09h591064&site=xueshu_se&hitarticle=1.
+
+
