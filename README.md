@@ -21,6 +21,8 @@ cd ~/myGit/frp
 ```
 npm run dev
 ```
+#### 本地处理完图片以后需要把结果上传到服务器
+
 ### 操作流程
 #### 1、访问
 - 前端：`visit ./fnt/index.html`
