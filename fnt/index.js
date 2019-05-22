@@ -181,14 +181,15 @@ function setCanvasSizeAndListener(file) {
       ajaxDom.innerText = '将于' + countNum + 's后请求服务器端修复结果...';
       if (countNum === 0) {
         clearInterval(intId)
+        countNum = 20
         ajaxDom.style.display = 'none'
       }
     }, 1000)
 
     // var prefix = '/Users/shaodong/myGit/demoInpainting/inpainting_result/';
-    var prefix = 'http://inpainting.shaodongweb.top/res_img';
+    var prefix = 'http://inpainting.shaodongweb.top/res_img/';
     // var maskPrefix = '/Users/shaodong/myGit/demoInpainting/inpainting_upload/';
-    var maskPrefix = 'http://inpainting.shaodongweb.top/res_img';
+    var maskPrefix = 'http://inpainting.shaodongweb.top/res_img/';
     setTimeout(function() {
 
       // 发送请求获取ass.txt 内容
