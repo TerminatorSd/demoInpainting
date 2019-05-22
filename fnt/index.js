@@ -186,9 +186,9 @@ function setCanvasSizeAndListener(file) {
     }, 1000)
 
     // var prefix = '/Users/shaodong/myGit/demoInpainting/inpainting_result/';
-    var prefix = 'http://inpainting.shaodongweb.top/';
+    var prefix = 'http://inpainting.shaodongweb.top/res_img';
     // var maskPrefix = '/Users/shaodong/myGit/demoInpainting/inpainting_upload/';
-    var maskPrefix = 'http://inpainting.shaodongweb.top/';
+    var maskPrefix = 'http://inpainting.shaodongweb.top/res_img';
     setTimeout(function() {
 
       // 发送请求获取ass.txt 内容
