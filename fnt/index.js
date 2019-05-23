@@ -1,5 +1,5 @@
-// var DOMAIN = 'http://inpainting.shaodongweb.top:6600';
-var DOMAIN = 'http://localhost:8300';
+var DOMAIN = 'http://inpainting.shaodongweb.top:6600';
+// var DOMAIN = 'http://localhost:8300';
 
 // 用户选择图片，判断图片是否超过规定大小，如果超过，需要使用canvas resize，否则直接显示
 // 设置mask canvas 的大小与图片一致
@@ -210,7 +210,7 @@ function setCanvasSizeAndListener(file) {
             var whiteZeroDom = document.getElementsByClassName('white_zero')[0];
             var glDom = document.getElementsByClassName('g_l')[0];
             var irDom = document.getElementsByClassName('ir')[0];
-            var geImgDom = document.getElementsByClassName('generative_imagenet')[0];
+            // var geImgDom = document.getElementsByClassName('generative_imagenet')[0];
             var gePlsDom = document.getElementsByClassName('generative_places2')[0];
             var mineDom = document.getElementsByClassName('mine')[0];
 
@@ -220,7 +220,7 @@ function setCanvasSizeAndListener(file) {
             whiteZeroDom.src = maskPrefix + 'white_zero_mask.jpg?v=' + inpaint_num;
             glDom.src = prefix + 'gl_out.jpg?v=' + inpaint_num;
             irDom.src = prefix + 'ir_out.jpg?v=' + inpaint_num;
-            geImgDom.src = prefix + 'gi_out_imagenet.jpg?v=' + inpaint_num;
+            // geImgDom.src = prefix + 'gi_out_imagenet.jpg?v=' + inpaint_num;
             gePlsDom.src = prefix + 'gi_out_places2.jpg?v=' + inpaint_num;
             mineDom.src = prefix + 'para_4_normal_9.jpg?v=' + inpaint_num;
 
@@ -231,9 +231,9 @@ function setCanvasSizeAndListener(file) {
             var irMse = document.getElementsByClassName('ir_mse')[0];
             var irPsnr = document.getElementsByClassName('ir_psnr')[0];
             var irSsim = document.getElementsByClassName('ir_ssim')[0]; 
-            var gi_img_Mse = document.getElementsByClassName('gi_img_mse')[0];
-            var gi_img_Psnr = document.getElementsByClassName('gi_img_psnr')[0];
-            var gi_img_Ssim = document.getElementsByClassName('gi_img_ssim')[0];
+            // var gi_img_Mse = document.getElementsByClassName('gi_img_mse')[0];
+            // var gi_img_Psnr = document.getElementsByClassName('gi_img_psnr')[0];
+            // var gi_img_Ssim = document.getElementsByClassName('gi_img_ssim')[0];
             var gi_pls_Mse = document.getElementsByClassName('gi_pls_mse')[0];
             var gi_pls_Psnr = document.getElementsByClassName('gi_pls_psnr')[0];
             var gi_pls_Ssim = document.getElementsByClassName('gi_pls_ssim')[0];
@@ -247,9 +247,9 @@ function setCanvasSizeAndListener(file) {
             irMse.innerText = 'MSE: ' + parseFloat(data['ir_out'][0]).toFixed(3);
             irPsnr.innerText = 'PSNR: ' + parseFloat(data['ir_out'][1]).toFixed(3);
             irSsim.innerText = 'SSIM: ' + parseFloat(data['ir_out'][2]).toFixed(3);
-            gi_img_Mse.innerText = 'MSE: ' + parseFloat(data['gi_out_imagenet'][0]).toFixed(3);
-            gi_img_Psnr.innerText = 'PSNR: ' + parseFloat(data['gi_out_imagenet'][1]).toFixed(3);
-            gi_img_Ssim.innerText = 'SSIM: ' + parseFloat(data['gi_out_imagenet'][2]).toFixed(3);
+            // gi_img_Mse.innerText = 'MSE: ' + parseFloat(data['gi_out_imagenet'][0]).toFixed(3);
+            // gi_img_Psnr.innerText = 'PSNR: ' + parseFloat(data['gi_out_imagenet'][1]).toFixed(3);
+            // gi_img_Ssim.innerText = 'SSIM: ' + parseFloat(data['gi_out_imagenet'][2]).toFixed(3);
             gi_pls_Mse.innerText = 'MSE: ' + parseFloat(data['gi_out_places2'][0]).toFixed(3);
             gi_pls_Psnr.innerText = 'PSNR: ' + parseFloat(data['gi_out_places2'][1]).toFixed(3);
             gi_pls_Ssim.innerText = 'SSIM: ' + parseFloat(data['gi_out_places2'][2]).toFixed(3);

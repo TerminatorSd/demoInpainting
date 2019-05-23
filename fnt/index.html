@@ -20,6 +20,9 @@
 				.mt-10 {
 					margin-top: 10px;
 				}
+				.mb-10 {
+					margin-bottom: 10px;
+				}
         .res {
 					display: none;
 					margin-top: 60px;
@@ -95,8 +98,8 @@
     </style>
 </head>
 <body style="margin:10px;">
-  <input id="img_upload" type="file"/><br>
-  <img class="mt-10" id="img_show" src="img.jpeg" alt=""/>
+  <input id="img_upload" class="mb-10" type="file"/><br>
+  <img id="img_show" src="img.jpeg" alt=""/>
   <div>
       <canvas id="canvas_draw" width="256px" height="256px"></canvas>
   </div>
@@ -105,6 +108,9 @@
       <button class="btn" id="inpaint">复原</button>
       <button class="btn" id="mask">制作掩膜</button>
 	</div>
+
+	<!-- <img src="../img/1.jpg" alt="">
+	<img src="../img/2.jpg" alt=""> -->
 
 	<div class="ajax">将于20s后请求服务器端修复结果...</div>
 
@@ -144,7 +150,7 @@
 				<span class="ir_ssim">ssim: 5</span><br>
 			</span>
 		</div>
-		<div class="res_item">
+		<!-- <div class="res_item">
 			<span class="title">生成式模型（ImageNet）</span>
 			<img src="" alt="" class="res_size generative_imagenet">
 			<span class="res_num">
@@ -152,9 +158,9 @@
 				<span class="gi_img_psnr">psnr: 4</span><br>
 				<span class="gi_img_ssim">ssim: 5</span><br>
 			</span>
-		</div>
+		</div> -->
 		<div class="res_item">
-			<span class="title">生成式模型（Places2）</span>
+			<span class="title">生成式模型</span>
 			<img src="" alt="" class="res_size generative_places2">
 			<span class="res_num">
 				<span class="gi_pls_mse">mse: 3</span><br>
