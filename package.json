@@ -32,7 +32,7 @@
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
     "koa2-cors": "^2.0.6",
-    "mongodb": "^2.2.25",
+    "mongodb": "^3.1.13",
     "mongoose": "^4.9.3",
     "node-cmd": "^3.0.0",
     "vue-simple-uploader": "^0.6.0",
